@@ -13,17 +13,18 @@ import pickle
 import re
 import undetected_chromedriver as uc
 import random
-import creds
+
 
 
 
 def main():
     idRegex = r'id="(.*?)"'
-
+    #kr = keyring.get_credential(service_name='Onboard', username=None)
     #setup the config parser (where the html identifiers are stored)
     config = configparser.ConfigParser()
-    config.read('settings.ini')
+    config.read('venv\settings.ini')
 
+    #print(keyring.get_credential(service_name='Onboard', username=None).username)
     #setup the chrome webdriver
     driver = setupDriver()
     driver.get('https://reactor.ics-llc.net/auth')
@@ -36,7 +37,7 @@ def main():
 
     #login to the website
     login(driver, config)
-
+    
     #click the trade button on website and halt
 #    waitToLoad(driver, By.XPATH, config.get('tradePath', 'tradeB'))
 #    driver.find_element(By.XPATH, config.get('tradePath', 'tradeB')).click()
@@ -109,10 +110,10 @@ def main():
 #        haltStep()
     
     #dump the cookies back into the file
-    pickle.dump(driver.get_cookies(), open('cookies.pkl', 'wb'))
+#    pickle.dump(driver.get_cookies(), open('cookies.pkl', 'wb'))
 
     #driver quits
-    driver.quit()
+#    driver.quit()
 
 #setup the driver
 def setupDriver():
@@ -130,9 +131,9 @@ def setupDriver():
 def login(driver, config):
     #driver.find_element(By.XPATH, config.get('loginPath', 'loginLink')).click()
     #haltStep()   
-    driver.find_element(By.XPATH, config.get('loginPath', 'userName')).send_keys(keyring.get_password("OnBoard", 'userLogin'))
+    driver.find_element(By.XPATH, config.get('loginPath', 'userName')).send_keys(keyring.get_credential(service_name='Onboard', username=None).username)
     haltStep()  
-    driver.find_element(By.XPATH, config.get('loginPath', 'password')).send_keys(keyring.get_password('OnBoard', 'userName'))
+    driver.find_element(By.XPATH, config.get('loginPath', 'password')).send_keys(keyring.get_credential(service_name='Onboard', username=None).password)
     haltStep()
     driver.find_element(By.XPATH, config.get('loginPath', 'loginB')).click()
     haltStep()
