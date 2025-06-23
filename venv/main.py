@@ -27,7 +27,7 @@ def main():
     #print(keyring.get_credential(service_name='Onboard', username=None).username)
     #setup the chrome webdriver
     driver = setupDriver()
-    driver.get('https://reactor.ics-llc.net/auth')
+    driver.get('ENTER URL HERE')
 
     #load previously saved cookies
     if (os.path.isfile('cookies.pkl')):

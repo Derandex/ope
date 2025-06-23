@@ -34,7 +34,10 @@ https://www.youtube.com/watch?v=S0FF1fgepwQ
       * (ensures that keyring is ready)
    7. keyring.set_password(service_name="OnBoard", username="PLACEHOLDER", password="PLACEHOLDER")
       * (replace PLACEHOLDER with your credentials)
-      * (Keyring utilizes microsoft's built in secruity protocols to secure credentials rather than sending passwords over internet in plain text)
+      * (Keyring utilizes microsoft's built in secruity protocols to secure credentials rather than sending passwords in plain text)
+3. Update URL (main.py) and html dictionaries as needed (setting.ini)
+
+    
 
 #### IMPORTANT
 A lot of other varaibles go into making a good web bot. I only covered a short list of them due to time and the nature of the website. If you are looking to improve the detection of a web bot you will need to research other areas such as rotating proxies. There are numerous of YT videos that explain this in detail.
