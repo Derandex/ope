@@ -10,7 +10,11 @@ https://www.youtube.com/watch?v=S0FF1fgepwQ
 **Note:** This tutorial assumes you have:
   1. Python 3.13
   2. pip3
-  3. Visual Studio Code (VSC)
+  3. Visual Studio Code (VSC) and the following extensions:
+    * Git Bash
+    * Pylance
+    * Python
+    * Python Debugger
 
 
 #### STEPS
