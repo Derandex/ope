@@ -1,4 +1,4 @@
-# Gators "fork" of dudes selenium-web-bot
+# Gators "fork" of a selenium-web-bot
 
 A script that enters data from an excel file into a website.
 
